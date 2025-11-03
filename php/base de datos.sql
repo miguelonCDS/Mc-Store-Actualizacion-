@@ -135,20 +135,3 @@ INSERT INTO pedidos (usuario_id, direccion_id, total, estado, metodo_pago) VALUE
 
 INSERT INTO detalles_pedido (pedido_id, producto_id, nombre_producto, cantidad, precio_unitario, total) VALUES
 (2, 5, 'Laptop Elite', 1, 18999.00, 18999.00);
-
--- Ver todos los usuarios
-SELECT * FROM usuarios;
-
--- Ver productos disponibles
-SELECT id, nombre, precio FROM productos WHERE estado = 'disponible';
-
--- Ver pedidos de un usuario
-SELECT p.id, p.total, p.estado, d.alias AS direccion 
-FROM pedidos p
-JOIN direcciones d ON p.direccion_id = d.id
-WHERE p.usuario_id = 2;
-
--- Ver detalles de un pedido
-SELECT dp.nombre_producto, dp.cantidad, dp.precio_unitario, dp.total
-FROM detalles_pedido dp
-WHERE dp.pedido_id = 1;
